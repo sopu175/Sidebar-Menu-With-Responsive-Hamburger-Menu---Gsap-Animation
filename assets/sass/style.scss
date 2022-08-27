@@ -1,0 +1,254 @@
+/* --------------------------------------------------------------------
+* Template Master Stylesheet
+*
+* Template:		Destination - Single Page Portfolio HTML Website Template
+* Author:		Sopu
+* URL:			https://sopu.live/
+*
+* Body Font (global): 'Montserrat', sans-serif;
+-------------------------------------------------------------------- */
+
+/* Table of Content
+====================
+* Hover color and Fonts Declare Global
+* General
+* Fonts Body Font and Secondy Font
+* Preloader
+* Header
+* Footer
+*/
+
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ------------------------------------------------------------- *
+* Hover color and Fonts Declare Global 
+* For change the value ddit _var.scss file
+/* ------------------------------------------------------------- */
+@import "var";
+
+/* ------------------------------------------------------------- *
+ * General
+ * For change the value ddit _general.scss file
+/* ------------------------------------------------------------- */
+@import "general";
+
+/* ------------------------------------------------------------- *
+ * Fonts
+/* ------------------------------------------------------------- */
+
+/* ------------------------------------------------------------- *
+ * Body font
+/* ------------------------------------------------------------- */
+body {
+   font-family: $body_font;
+}
+
+/* ------------------------------------------------------------- *
+ * Secondary font
+/* ------------------------------------------------------------- */
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: $secondary_font;
+}
+
+/* ------------------------------------------------------------- *
+ * Preloader
+/* ------------------------------------------------------------- */
+@import url("../lib/preloader/percent-preloader.css");
+
+/* ------------------------------------------------------------- *
+ * Header
+/* ------------------------------------------------------------- */
+header {
+   position: fixed;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   min-width: 20vw;
+   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+   height: calc(var(--vh, 1vh) * 100);
+   background: $body_bg_color;
+   transition: 0.7s all ease;
+   .header_container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+      .header_info {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         margin: 20px 20px 0;
+         &__image {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+            img {
+               height: 80px;
+               max-height: 80px;
+               width: 80px;
+            }
+         }
+         &__title {
+            color: $hover;
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 600;
+         }
+      }
+      .site_navbar {
+         ul {
+            li {
+               list-style: none;
+               margin: 0 0 0;
+               &:last-child {
+                  margin: 0 0 0;
+               }
+               a {
+                  color: white;
+                  font-weight: 400;
+                  display: block;
+                  width: 100%;
+                  position: relative;
+                  padding: 10px 20px;
+                  text-align: center;
+                  position: relative;
+                  text-decoration: none;
+                  border-bottom: 1px solid rgba(245, 245, 245, 0.159);
+                  outline: none;
+                  &:hover {
+                     color: $hover;
+                  }
+                  &::after {
+                     display: block;
+                     position: absolute;
+                     right: 0px;
+                     bottom: 0px;
+                     content: "";
+                     width: 2px;
+                     height: 100%;
+                     margin: 0px auto;
+                     background-color: transparent;
+                     transition: all 0.18s ease-out 0s;
+                     visibility: hidden;
+                     opacity: 0;
+                  }
+                  &.active {
+                     color: $hover;
+                     &::after {
+                        background-color: $hover;
+                        visibility: visible;
+                        opacity: 1;
+                     }
+                  }
+               }
+            }
+         }
+      }
+      .site_social_info {
+         margin: 0px 20px 20px;
+
+         ul {
+            display: flex;
+            justify-content: space-between;
+            li {
+               list-style: none;
+               a {
+                  i {
+                     color: white;
+                     font-size: 20px;
+                     transition: 0.7s all ease-in;
+                  }
+                  &:hover {
+                     i {
+                        color: $hover;
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      @media (max-width: 992px) {
+         height: 80vh;
+         overflow-y: scroll;
+      }
+   }
+
+   @media (max-width: 992px) {
+      min-width: 80%;
+      top: 90px;
+      height: calc(var(--vh, 1vh) * 100 - 90px);
+      height: calc(100vh - 90px);
+   }
+}
+
+// mobile navigation start
+.mobile_navigation {
+   padding: 20px 0;
+   height: 90px;
+
+   .container {
+      .row {
+         flex-direction: row;
+         justify-content: space-between;
+         flex-wrap: unset;
+         margin: 0;
+         .mobile_logo {
+            display: flex;
+            align-items: center;
+            &__image {
+               max-height: 50px;
+               margin: 0 15px 0 0;
+            }
+            &__title {
+               color: white;
+               font-size: 20px;
+               line-height: 24px;
+               font-weight: 600;
+            }
+         }
+         .mobile_hamburger {
+            transition: all 0.2s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            .ham {
+               display: flex;
+               svg {
+                  height: 30px;
+                  width: 30px;
+                  line {
+                     stroke: white;
+                     stroke-width: 6px;
+                  }
+               }
+               &.active {
+                  svg {
+                     line {
+                        stroke: $hover;
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+   @media (min-width: 992px) {
+      display: none;
+   }
+}
